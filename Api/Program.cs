@@ -1,10 +1,13 @@
+using application.Processamento;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+// Registra o catálogo uma única vez na aplicação.
+builder.Services.AddSingleton<CatalogoProcessadores>();
 
 var app = builder.Build();
 
